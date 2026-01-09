@@ -1,5 +1,6 @@
 NAME
 ====
++[![Actions Status](https://github.com/coke/math-zeckendorf/actions/workflows/test.yml/badge.svg)](https://github.com/coke/math-zeckendorf/actions)
 
 Math::Zeckendorf
 
