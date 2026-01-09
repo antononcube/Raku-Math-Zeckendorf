@@ -1,0 +1,25 @@
+{
+  "auth": "zef:coke",
+  "authors": [
+    "Will Coleda"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Zeckendorf decomposition",
+  "license": "Artistic-2.0",
+  "name": "Math::Zeckendorf",
+  "perl": "6.d",
+  "provides": {
+    "Math::Zeckendorf": "lib/Math/Zeckendorf.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}

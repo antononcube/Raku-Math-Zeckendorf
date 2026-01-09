@@ -1,0 +1,14 @@
+#!/usr/bin/env raku
+
+use Test;
+use Math::Zeckendorf;
+
+plan 4;
+
+is zeckendorf(27), <1 0 0 1 0 0 1>, "27: zeckendorf as digits";
+
+is zeckendorf(27, :numbers), <21 5 1>, "27: zeckdorf as fibonacci numbers";
+
+is zeckendorf(72), <1 0 0 1 0 0 1 0 1>, "72: zeckendorf as digits";
+
+is zeckendorf(72, :numbers), <55 13 3 1>, "72: zeckdorf as fibonacci numbers";
