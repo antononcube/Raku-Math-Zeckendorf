@@ -13,7 +13,7 @@ our sub zeckendorf(Int $num, :$numbers=False) is export {
     my @digits;
     my @numbers;
 
-    while $index > 0 && $remainder > 0 {
+    while $index > 0 {
         my $number = $fibs[$index];
 
         if $remainder >= $number {

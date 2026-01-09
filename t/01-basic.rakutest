@@ -3,12 +3,21 @@
 use Test;
 use Math::Zeckendorf;
 
-plan 4;
+plan 8;
 
 is zeckendorf(27), <1 0 0 1 0 0 1>, "27: zeckendorf as digits";
 
 is zeckendorf(27, :numbers), <21 5 1>, "27: zeckdorf as fibonacci numbers";
 
+is zeckendorf(55), <1 0 0 0 0 0 0 0 0>, "55: zeckendorf as digits";
+
+is zeckendorf(55, :numbers), <55>, "55: zeckdorf as fibonacci numbers";
+
+is zeckendorf(64), <1 0 0 0 1 0 0 0 1>, "64: zeckendorf as digits";
+
+is zeckendorf(64, :numbers), <55 8 1>, "64: zeckdorf as fibonacci numbers";
+
 is zeckendorf(72), <1 0 0 1 0 0 1 0 1>, "72: zeckendorf as digits";
 
 is zeckendorf(72, :numbers), <55 13 3 1>, "72: zeckdorf as fibonacci numbers";
+
