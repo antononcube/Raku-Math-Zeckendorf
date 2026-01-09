@@ -12,10 +12,10 @@ SYNOPSIS
 ```raku
 use Math::Zeckendorf;
 
-say zeckendorf(72);
+say zeckendorf(27);
 # OUTPUT: «[1 0 0 1 0 0 1]␤»
 
-say zeckendorf(72, :numbers);
+say zeckendorf(27, :numbers);
 # OUTPUT: «[21 5 1]␤»
 ```
 
