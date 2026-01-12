@@ -38,8 +38,7 @@ Conversely, the binary digits returned from `dual-zeckendorf` do not contain any
 greater than size 1.
 See https://oeis.org/A104326
 
-See also [Zeckendorf's theorem](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem) on wikipedia, and
-https://oeis.org/A104326
+See also [Zeckendorf's theorem](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem) on wikipedia.
 
 AUTHOR
 ======
