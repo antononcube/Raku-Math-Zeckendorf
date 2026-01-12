@@ -9,8 +9,8 @@ SYNOPSIS
 ========
 [![Actions Status](https://github.com/coke/math-zeckendorf/actions/workflows/test.yml/badge.svg)](https://github.com/coke/math-zeckendorf/actions)
 
-Return either the zeckendorf or the daul-zeckendorf decomposition. If
-`:numbers` is enabled, instead return the actual Fibonnaci numbers.
+Return either the `zeckendorf` or the `dual-zeckendorf` decomposition. If
+`:numbers` is enabled, instead return the corresponding Fibonnaci numbers.
 
 ```raku
 use Math::Zeckendorf;
