@@ -3,11 +3,14 @@ NAME
 Math::Zeckendorf
 
 Given an `Int`, generate the Zeckendorf decomposition of that number,
-I<or> the Dual Zeckendorf decomposition.
+_or_ the Dual Zeckendorf decomposition.
 
 SYNOPSIS
 ========
 [![Actions Status](https://github.com/coke/math-zeckendorf/actions/workflows/test.yml/badge.svg)](https://github.com/coke/math-zeckendorf/actions)
+
+Return either the zeckendorf or the daul-zeckendorf decomposition. If
+`:numbers` is enabled, instead return the actual Fibonnaci numbers.
 
 ```raku
 use Math::Zeckendorf;
@@ -30,10 +33,10 @@ DESCRIPTION
 
 Inspired by the ["Base Fibonacci" Numberphile video](https://www.youtube.com/watch?v=S5FTe5KP2Cw&sttick=0).
 
-The binary digits returned from `zeckendorf` do not include any sequential fibonacci numbers.
+The binary digits returned from `zeckendorf` do not include any sequential Fibonacci numbers.
 See https://oeis.org/A014417.
 
-Conversely, the binary digits returned from `dual-zeckendorf` do not contain any gaps of fibonacci numbers
+Conversely, the binary digits returned from `dual-zeckendorf` do not contain any gaps of Fibonacci numbers
 greater than size 1.
 See https://oeis.org/A104326
 
