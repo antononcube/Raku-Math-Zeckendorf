@@ -3,21 +3,36 @@
 use Test;
 use Math::Zeckendorf;
 
-plan 8;
+plan 16;
 
 is zeckendorf(27), <1 0 0 1 0 0 1>, "27: zeckendorf as digits";
 
-is zeckendorf(27, :numbers), <21 5 1>, "27: zeckdorf as fibonacci numbers";
+is zeckendorf(27, :numbers), <21 5 1>, "27: zeckendorf as fibonacci numbers";
 
 is zeckendorf(55), <1 0 0 0 0 0 0 0 0>, "55: zeckendorf as digits";
 
-is zeckendorf(55, :numbers), <55>, "55: zeckdorf as fibonacci numbers";
+is zeckendorf(55, :numbers), <55>, "55: zeckendorf as fibonacci numbers";
 
 is zeckendorf(64), <1 0 0 0 1 0 0 0 1>, "64: zeckendorf as digits";
 
-is zeckendorf(64, :numbers), <55 8 1>, "64: zeckdorf as fibonacci numbers";
+is zeckendorf(64, :numbers), <55 8 1>, "64: zeckendorf as fibonacci numbers";
 
 is zeckendorf(72), <1 0 0 1 0 0 1 0 1>, "72: zeckendorf as digits";
 
-is zeckendorf(72, :numbers), <55 13 3 1>, "72: zeckdorf as fibonacci numbers";
+is zeckendorf(72, :numbers), <55 13 3 1>, "72: zeckendorf as fibonacci numbers";
 
+is dual-zeckendorf(27), <1 1 0 1 1 1>, "27: dual-zeckendorf as digits";
+
+is dual-zeckendorf(27, :numbers), <13 8 5 3 2 1>, "27: dual-zeckendorf as fibonacci numbers";
+
+is dual-zeckendorf(55), <1 0 1 0 1 0 1 1>, "55: dual-zeckendorf as digits";
+
+is dual-zeckendorf(55, :numbers), <34 21 13 8 5 3 2 1>, "55: dual-zeckendorf as fibonacci numbers";
+
+is dual-zeckendorf(64), <1 0 1 1 1 1 0 1>, "64: dual-zeckendorf as digits";
+
+is dual-zeckendorf(64, :numbers), <34 21 13 8 5 3 2 1>, "64: dual-zeckendorf as fibonacci numbers";
+
+is dual-zeckendorf(72), <1 1 0 1 1 1 0 1>, "72: dual-zeckendorf as digits";
+
+is dual-zeckendorf(72, :numbers), <34 21 13 8 5 3 2 1>, "72: dual-zeckendorf as fibonacci numbers";

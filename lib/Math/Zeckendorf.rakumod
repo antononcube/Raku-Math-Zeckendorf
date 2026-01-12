@@ -2,16 +2,25 @@ unit class Math::Zeckendorf;
 
 my $fibs := 1, 1, * + * ... *;
 
+#| Given an array of binary digits, return the list of fibonacci numbers
+sub get-numbers(@digits) {
+    my @result;
+    for @digits.kv -> $index, $value {
+        next unless $value;
+        @result.push($fibs[@digits.elems - $index]);
+    }
+    @result
+}
+
 our sub zeckendorf(Int $num, :$numbers=False) is export {
     my $index=0;
     while $num >= $fibs[$index] {
         $index++;
     }
-    $index--; 
+    $index--;
 
-    my $remainder = $num; 
+    my $remainder = $num;
     my @digits;
-    my @numbers;
 
     while $index > 0 {
         my $number = $fibs[$index];
@@ -19,13 +28,32 @@ our sub zeckendorf(Int $num, :$numbers=False) is export {
         if $remainder >= $number {
             @digits.push: 1;
             $remainder -= $number;
-            @numbers.push: $number; 
         } else {
             @digits.push: 0;
         }
         $index--;
     }
 
-    return @numbers if $numbers;
+    return get-numbers(@digits) if $numbers;
+    return @digits;
+}
+
+our sub dual-zeckendorf(Int $num, :$numbers=False) is export {
+    # compute the Zeckendorf representation as a string
+    my $zeck = zeckendorf($num).join('');
+
+    # convert any sequences of 100 to 011 (e.g. decompose a single 13 to 8 and 5)
+    # do so repeatedly as each substitution may create new opportunities
+
+    while $zeck.contains('100') {
+        $zeck ~~ s/100/011/;
+    }
+
+    # Remove any leading 0s
+    $zeck ~~ s/^0+//;
+
+    my @digits = $zeck.comb;
+
+    return get-numbers(@digits) if $numbers;
     return @digits;
 }

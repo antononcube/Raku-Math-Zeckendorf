@@ -4,7 +4,8 @@ NAME
 
 Math::Zeckendorf
 
-Given an `Int`, generate the Zeckendorf decomposition of that number.
+Given an `Int`, generate the Zeckendorf decomposition of that number,
+I<or> the Dual Zeckendorf decomposition.
 
 SYNOPSIS
 ========
@@ -17,6 +18,12 @@ say zeckendorf(27);
 
 say zeckendorf(27, :numbers);
 # OUTPUT: «[21 5 1]␤»
+
+say dual-zeckendorf(27);
+# OUTPUT: «[1 1 0 1 1 1]␤»
+
+say dual-zeckendorf(27, :numbers);
+# OUTPUT: «[13 8 3 2 1]␤»
 ```
 
 DESCRIPTION
@@ -24,7 +31,15 @@ DESCRIPTION
 
 Inspired by the ["Base Fibonacci" Numberphile video](https://www.youtube.com/watch?v=S5FTe5KP2Cw&sttick=0).
 
-See also [Zeckendorf's theorem](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem) on wikipedia.
+The binary digits returned from `zeckendorf` do not include any sequential fibonacci numbers.
+See https://oeis.org/A014417.
+
+Conversely, the binary digits returned from `dual-zeckendorf` do not contain any gaps of fibonacci numbers
+greater than size 1.
+See https://oeis.org/A104326
+
+See also [Zeckendorf's theorem](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem) on wikipedia, and
+https://oeis.org/A104326
 
 AUTHOR
 ======

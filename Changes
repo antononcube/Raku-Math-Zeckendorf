@@ -1,6 +1,7 @@
 Revision history for Math::Zeckendorf
 
 {{$NEXT}}
+    - Add dual-zeckendorf
 
 0.0.2  2026-01-09T17:17:19-05:00
     - Fix README
