@@ -1,7 +1,5 @@
 NAME
 ====
-+[![Actions Status](https://github.com/coke/math-zeckendorf/actions/workflows/test.yml/badge.svg)](https://github.com/coke/math-zeckendorf/actions)
-
 Math::Zeckendorf
 
 Given an `Int`, generate the Zeckendorf decomposition of that number,
@@ -9,6 +7,7 @@ I<or> the Dual Zeckendorf decomposition.
 
 SYNOPSIS
 ========
+[![Actions Status](https://github.com/coke/math-zeckendorf/actions/workflows/test.yml/badge.svg)](https://github.com/coke/math-zeckendorf/actions)
 
 ```raku
 use Math::Zeckendorf;
