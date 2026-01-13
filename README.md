@@ -34,7 +34,7 @@ DESCRIPTION
 Inspired by the ["Base Fibonacci" Numberphile video](https://www.youtube.com/watch?v=S5FTe5KP2Cw&sttick=0).
 
 The binary digits returned from `zeckendorf` do not include any sequential Fibonacci numbers.
-See https://oeis.org/A014417.
+See https://oeis.org/A014417
 
 Conversely, the binary digits returned from `dual-zeckendorf` do not contain any gaps of Fibonacci numbers
 greater than size 1.
