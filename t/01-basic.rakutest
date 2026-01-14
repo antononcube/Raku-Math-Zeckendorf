@@ -3,36 +3,40 @@
 use Test;
 use Math::Zeckendorf;
 
-plan 16;
+my %data = (
+    27 => {
+        'z1' => '1001001',
+        'f1' => <21 5 1>,
+        'z2' => '110111',
+        'f2' => <13 8 3 2 1>,
+    },
+    55 => {
+        'z1' => '100000000',
+        'f1' => <55>,
+        'z2' => '10101011',
+        'f2' => <34 13 5 2 1>,
+    },
+    64 => {
+        'z1' => '100010001',
+        'f1' => <55 8 1>,
+        'z2' => '10111101',
+        'f2' => <34 13 8 5 3 1>,
+    },
+    72 => {
+        'z1' => '100100101',
+        'f1' => <55 13 3 1>,
+        'z2' => '11011101',
+        'f2' => <34 21 8 5 3 1>,
+    }
+);
 
-is zeckendorf(27), <1 0 0 1 0 0 1>, "27: zeckendorf as digits";
+plan %data.keys.elems * 6;
 
-is zeckendorf(27, :numbers), <21 5 1>, "27: zeckendorf as fibonacci numbers";
-
-is zeckendorf(55), <1 0 0 0 0 0 0 0 0>, "55: zeckendorf as digits";
-
-is zeckendorf(55, :numbers), <55>, "55: zeckendorf as fibonacci numbers";
-
-is zeckendorf(64), <1 0 0 0 1 0 0 0 1>, "64: zeckendorf as digits";
-
-is zeckendorf(64, :numbers), <55 8 1>, "64: zeckendorf as fibonacci numbers";
-
-is zeckendorf(72), <1 0 0 1 0 0 1 0 1>, "72: zeckendorf as digits";
-
-is zeckendorf(72, :numbers), <55 13 3 1>, "72: zeckendorf as fibonacci numbers";
-
-is dual-zeckendorf(27), <1 1 0 1 1 1>, "27: dual-zeckendorf as digits";
-
-is dual-zeckendorf(27, :numbers), <13 8 5 3 2 1>, "27: dual-zeckendorf as fibonacci numbers";
-
-is dual-zeckendorf(55), <1 0 1 0 1 0 1 1>, "55: dual-zeckendorf as digits";
-
-is dual-zeckendorf(55, :numbers), <34 21 13 8 5 3 2 1>, "55: dual-zeckendorf as fibonacci numbers";
-
-is dual-zeckendorf(64), <1 0 1 1 1 1 0 1>, "64: dual-zeckendorf as digits";
-
-is dual-zeckendorf(64, :numbers), <34 21 13 8 5 3 2 1>, "64: dual-zeckendorf as fibonacci numbers";
-
-is dual-zeckendorf(72), <1 1 0 1 1 1 0 1>, "72: dual-zeckendorf as digits";
-
-is dual-zeckendorf(72, :numbers), <34 21 13 8 5 3 2 1>, "72: dual-zeckendorf as fibonacci numbers";
+for %data.keys.sort(+*) -> $value {
+    is zeckendorf(+$value), %data{$value}<z1>.comb, "zeckendorf($value)";
+    is zeckendorf(+$value, :numbers), %data{$value}<f1>, "zeckendorf($value, :numbers)";
+    is zeckendorf(+$value, :numbers).sum, $value, "zeckendorf($value, :numbers).sum";
+    is dual-zeckendorf(+$value), %data{$value}<z2>.comb, "dual-zeckendorf($value)";
+    is dual-zeckendorf(+$value, :numbers), %data{$value}<f2>, "dual-zeckendorf($value, :numbers)";
+    is dual-zeckendorf(+$value, :numbers).sum, $value, "dual-zeckendorf($value, :numbers).sum";
+}
