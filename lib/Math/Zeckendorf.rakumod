@@ -6,7 +6,7 @@ my $fibs := 1, 1, * + * ... *;
 sub get-numbers(@digits) {
     my @result;
     for @digits.kv -> $index, $value {
-        next unless $value;
+        next unless +$value;
         @result.push($fibs[@digits.elems - $index]);
     }
     @result
