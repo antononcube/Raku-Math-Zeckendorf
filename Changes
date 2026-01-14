@@ -2,6 +2,10 @@ Revision history for Math::Zeckendorf
 
 {{$NEXT}}
 
+0.0.4  2026-01-13T20:05:37-05:00
+    - Fix bug in dual-zeckendorf(:number)
+    - Make duplicative tests data driven
+ 
 0.0.3  2026-01-12T19:03:03-05:00
     - Add dual-zeckendorf
 
