@@ -12,7 +12,8 @@ sub get-numbers(@digits) {
     @result
 }
 
-our sub zeckendorf(Int $num, :$numbers=False) is export {
+#| Zeckendorf representation of an integer.
+our sub zeckendorf-representation(Int $num, :$numbers=False) is export {
     my $index=0;
     while $num >= $fibs[$index] {
         $index++;
@@ -38,7 +39,11 @@ our sub zeckendorf(Int $num, :$numbers=False) is export {
     return @digits;
 }
 
-our sub dual-zeckendorf(Int $num, :$numbers=False) is export {
+#| Synonym of &zeckendorf-representation.
+our &zeckendorf is export = &zeckendorf-representation;
+
+#| Dual Zeckendorf representation of an integer.
+our sub dual-zeckendorf-representation(Int $num, :$numbers=False) is export {
     # compute the Zeckendorf representation as a string
     my $zeck = zeckendorf($num).join('');
 
@@ -57,3 +62,6 @@ our sub dual-zeckendorf(Int $num, :$numbers=False) is export {
     return get-numbers(@digits) if $numbers;
     return @digits;
 }
+
+#| Synonym of &dual-zeckendorf-representation.
+our &dual-zeckendorf is export = &dual-zeckendorf-representation;
