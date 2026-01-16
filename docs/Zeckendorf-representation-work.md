@@ -73,13 +73,19 @@ There are $F_k$ Zeckendorf representations of length $k$; for example, here are 
 #%html
 zeckendorf-representation(21 ... 33)
 andthen Math::SparseMatrix.new(dense-matrix => $_, row-names => (21...33), column-names => (^$_.head.elems).reverse)
-andthen my $mat = $_;
+andthen my $mat = $_
+andthen .to-html()
+```
 
-[
-    matrix => $mat.to-html(),
-    plot => dot-matrix-plot($mat.dense-matrix, row-names => $mat.row-names, column-names => $mat.column-names, :5size):svg
-]
-andthen to-html-table($_)
+Here is a matrix plot corresponding to the pattern above:
+
+```raku, results=asis
+my $matrix-plot = dot-matrix-plot($mat.dense-matrix, row-names => $mat.row-names, column-names => $mat.column-names, :5size):svg;
+
+my $file-name = './img/matrix-plot.svg';
+spurt($file-name, $matrix-plot);
+
+"![]($file-name)";
 ```
 
 (Using a sparse matrix object made the visualizations easier.)
