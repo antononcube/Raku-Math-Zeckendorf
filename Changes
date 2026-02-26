@@ -1,6 +1,8 @@
 Revision history for Math::Zeckendorf
 
 {{$NEXT}}
+
+0.0.5  2026-02-26T10:16:23-05:00
     - Add LT docs (@antoncube++)
     - Add aliases to exported routines
 
