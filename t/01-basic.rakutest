@@ -30,13 +30,19 @@ my %data = (
     }
 );
 
-plan %data.keys.elems * 6;
+plan %data.keys.elems * 6 * 2;
 
 for %data.keys.sort(+*) -> $value {
     is zeckendorf(+$value), %data{$value}<z1>.comb, "zeckendorf($value)";
+    is zeckendorf-representation(+$value), %data{$value}<z1>.comb, "zeckendorf($value)";
     is zeckendorf(+$value, :numbers), %data{$value}<f1>, "zeckendorf($value, :numbers)";
+    is zeckendorf-representation(+$value, :numbers), %data{$value}<f1>, "zeckendorf($value, :numbers)";
     is zeckendorf(+$value, :numbers).sum, $value, "zeckendorf($value, :numbers).sum";
+    is zeckendorf-representation(+$value, :numbers).sum, $value, "zeckendorf($value, :numbers).sum";
     is dual-zeckendorf(+$value), %data{$value}<z2>.comb, "dual-zeckendorf($value)";
+    is dual-zeckendorf-representation(+$value), %data{$value}<z2>.comb, "dual-zeckendorf($value)";
     is dual-zeckendorf(+$value, :numbers), %data{$value}<f2>, "dual-zeckendorf($value, :numbers)";
+    is dual-zeckendorf-representation(+$value, :numbers), %data{$value}<f2>, "dual-zeckendorf($value, :numbers)";
     is dual-zeckendorf(+$value, :numbers).sum, $value, "dual-zeckendorf($value, :numbers).sum";
+    is dual-zeckendorf-representation(+$value, :numbers).sum, $value, "dual-zeckendorf($value, :numbers).sum";
 }
