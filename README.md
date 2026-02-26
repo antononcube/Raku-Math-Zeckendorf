@@ -28,6 +28,8 @@ say dual-zeckendorf(27, :numbers);
 # OUTPUT: «[13 8 3 2 1]␤»
 ```
 
+`zeckendorf-representation` and `dual-zeckendorf-representation` are aliases for these routines.
+
 DESCRIPTION
 ===========
 
@@ -39,6 +41,9 @@ See https://oeis.org/A014417
 Conversely, the binary digits returned from `dual-zeckendorf` do not contain any gaps of Fibonacci numbers
 greater than size 1.
 See https://oeis.org/A104326
+
+See the [docs](https://github.com/coke/math-zeckendorf/tree/main/docs) for sample notebooks demonstrating
+this module.
 
 See also [Zeckendorf's theorem](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem) on wikipedia.
 
